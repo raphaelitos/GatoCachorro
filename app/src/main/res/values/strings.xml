@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GatoCachorro</string>
+    <string name="text_title_fpage">Frases de Gatos e Cachorros</string>
+    <string name="hint_inp_name">Digite seu nome</string>
+    <string name="text_btn_fpage">GUARDAR</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="toast_btn_fpage">Entrando...</string>
+    <string name="txt_saudacao_app_page">Olá, </string>
+    <string name="txt_nome_user_app_page">Fulano</string>
+</resources>
