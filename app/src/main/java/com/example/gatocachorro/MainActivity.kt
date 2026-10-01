@@ -5,22 +5,27 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.WindowInsetsCompat
 import com.example.gatocachorro.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mp: MyPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
-//        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left + binding.main.paddingLeft, systemBars.top,
-//                systemBars.right + binding.main.paddingRight, systemBars.bottom)
-//            insets
-//        }
-        binding = ActivityMainBinding.inflate(layoutInflater);
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnFpage.setOnClickListener(this)
 
         mp = MyPreferences(applicationContext)
 
@@ -29,7 +34,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
 
-        binding.btnFpage.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -39,19 +43,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if (nome.isBlank()) {
                 Toast.makeText(
                     this,
-                    "Digite seu nome para continuar.",
+                    R.string.toast_nome_vazio,
+                    Toast.LENGTH_SHORT
+                ).show()
+                return
+            }
+
+            else if (nome.length < 3){
+                Toast.makeText(
+                    this,
+                    R.string.toast_nome_pequeno,
                     Toast.LENGTH_SHORT
                 ).show()
                 return
             }
 
             mp.setString("name", nome)
-
-            Toast.makeText(
-                this,
-                R.string.toast_btn_fpage,
-                Toast.LENGTH_SHORT
-            ).show()
 
             abrirTelaFrases()
 

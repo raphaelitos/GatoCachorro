@@ -10,4 +10,7 @@
     <string name="txt_curiosidade">Curiosidade aqui :)</string>
     <string name="txt_btn_calc_app_page">GERAR OUTRA FRASE</string>
     <string name="toast_btn_app_page">Gerando frase nova...</string>
+    <string name="txt_btn_voltar">Voltar</string>
+    <string name="toast_nome_vazio">Digite seu nome para continuar.</string>
+    <string name="toast_nome_pequeno">Seu nome deve ter ao menos 3 caracteres!</string>
 </resources>
