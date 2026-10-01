@@ -4,12 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.gatocachorro.databinding.ActivityMainBinding
-import com.example.gatocachorro.ui.theme.TelaFrasesActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -34,6 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         if(v?.id == R.id.btn_fpage){
             Toast.makeText(this, "@string/toast_btn_fpage", Toast.LENGTH_SHORT).show()
+
             startActivity(Intent(this, TelaFrasesActivity::class.java))
 
         }

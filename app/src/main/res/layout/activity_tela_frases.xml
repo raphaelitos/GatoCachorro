@@ -5,10 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.theme.TelaFrasesActivity">
+    tools:context=".TelaFrasesActivity">
 
 
     <View
+        android:id="@+id/view_imgs"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:padding="12dp"
@@ -24,7 +25,9 @@
         android:layout_height="80dp"
         android:src="@drawable/cat_svgrepo_com"
         app:tint="@color/white"
+        android:clickable="true"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_imgs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/img_dog"/>
 
@@ -34,9 +37,61 @@
         android:layout_height="80dp"
         android:src="@drawable/dog_svgrepo_com"
         app:tint="@color/white"
+        android:clickable="true"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_imgs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/img_cat"
          />
+
+    <TextView
+        android:id="@+id/txt_saudacao_app_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_saudacao_app_page"
+        app:layout_constraintTop_toBottomOf="@id/view_imgs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nome_app_page"
+        app:layout_constraintBottom_toTopOf="@id/txt_curiosity"
+        app:layout_constraintHorizontal_chainStyle="packed"
+
+        />
+
+    <TextView
+        android:id="@+id/nome_app_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_nome_user_app_page"
+        android:layout_marginStart="4dp"
+        app:layout_constraintTop_toBottomOf="@id/view_imgs"
+        app:layout_constraintStart_toEndOf="@id/txt_saudacao_app_page"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/txt_curiosity"
+        />
+
+    <TextView
+        android:id="@+id/txt_curiosity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_curiosidade"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_calc_app_page"
+        app:layout_constraintTop_toBottomOf="@+id/txt_saudacao_app_page"
+        />
+
+    <Button
+        android:id="@+id/btn_calc_app_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_btn_calc_app_page"
+        android:backgroundTint="@color/material_dynamic_primary60"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_curiosity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

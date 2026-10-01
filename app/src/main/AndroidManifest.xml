@@ -33,7 +33,7 @@
             android:theme="@style/Theme.GatoCachorro"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ui.theme.TelaFrasesActivity"
+            android:name=".TelaFrasesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
