@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GatoCachorro</string>
-    <string name="text_title_fpage">Frases de Gatos e Cachorros</string>
+    <string name="text_title_fpage">Frases de Gatos, Cachorros e Aves</string>
     <string name="hint_inp_name">Digite seu nome</string>
     <string name="text_btn_fpage">GUARDAR</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="toast_btn_fpage">Entrando...</string>
-    <string name="txt_saudacao_app_page">Olá, </string>
+    <string name="txt_saudacao_app_page">Olá,</string>
     <string name="txt_nome_user_app_page">Fulano</string>
     <string name="txt_curiosidade">Curiosidade aqui :)</string>
     <string name="txt_btn_calc_app_page">GERAR OUTRA FRASE</string>
@@ -13,4 +14,28 @@
     <string name="txt_btn_voltar">Voltar</string>
     <string name="toast_nome_vazio">Digite seu nome para continuar.</string>
     <string name="toast_nome_pequeno">Seu nome deve ter ao menos 3 caracteres!</string>
+
+    <string name="sem_frases_disponiveis">Sem frases disponíveis</string>
+    <string name="frase_excluida">Frase excluída com sucesso!</string>
+    <string name="animal_gato">Gato</string>
+    <string name="animal_cachorro">Cachorro</string>
+    <string name="animal_ave">Ave</string>
+
+    <string name="frase_gato_1">Os bigodes dos gatos ajudam a perceber objetos próximos e avaliar espaços estreitos.</string>
+    <string name="frase_gato_2">A língua dos gatos tem pequenas estruturas que ajudam a remover pelos soltos durante a limpeza.</string>
+    <string name="frase_gato_3">Gatos enxergam melhor que os humanos em ambientes com pouca luz.</string>
+    <string name="frase_gato_4">Ao arranhar superfícies, os gatos ajudam a remover as camadas antigas das garras.</string>
+    <string name="frase_gato_5">Gatos adultos normalmente têm 30 dentes.</string>
+
+    <string name="frase_cachorro_1">Cachorros não enxergam apenas em preto e branco: eles distinguem tons de azul e amarelo.</string>
+    <string name="frase_cachorro_2">Cachorros possuem glândulas de suor nas almofadinhas das patas.</string>
+    <string name="frase_cachorro_3">A respiração ofegante ajuda os cachorros a liberar calor e regular a temperatura do corpo.</string>
+    <string name="frase_cachorro_4">Cachorros conseguem ouvir sons mais agudos do que os humanos.</string>
+    <string name="frase_cachorro_5">Cachorros têm 28 dentes de leite e normalmente 42 dentes na fase adulta.</string>
+
+    <string name="frase_ave_1">Os ossos dos pássaros são ocos e leves para facilitar o voo.</string>
+    <string name="frase_ave_2">Os beija-flores são os únicos pássaros que conseguem voar para trás.</string>
+    <string name="frase_ave_3">Os pássaros não têm dentes e usam a moela para triturar os alimentos.</string>
+    <string name="frase_ave_4">As corujas conseguem girar a cabeça em até 270 graus.</string>
+    <string name="frase_ave_5">Os pombos possuem uma bússola interna natural baseada no campo magnético para se orientar.</string>
 </resources>

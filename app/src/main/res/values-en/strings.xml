@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CatDogBird</string>
+    <string name="text_title_fpage">Cat, Dog and Bird Facts</string>
+    <string name="hint_inp_name">Enter your name</string>
+    <string name="text_btn_fpage">SAVE</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="toast_btn_fpage">Opening...</string>
+    <string name="txt_saudacao_app_page">Hello,</string>
+    <string name="txt_nome_user_app_page">Your name</string>
+    <string name="txt_curiosidade">Your fact appears here :)</string>
+    <string name="txt_btn_calc_app_page">GENERATE ANOTHER FACT</string>
+    <string name="toast_btn_app_page">Generating a new fact...</string>
+    <string name="txt_btn_voltar">Back</string>
+    <string name="toast_nome_vazio">Enter your name to continue.</string>
+    <string name="toast_nome_pequeno">Your name must have at least 3 characters!</string>
+
+    <string name="sem_frases_disponiveis">No facts available</string>
+    <string name="frase_excluida">Fact deleted successfully!</string>
+    <string name="animal_gato">Cat</string>
+    <string name="animal_cachorro">Dog</string>
+    <string name="animal_ave">Bird</string>
+
+    <string name="frase_gato_1">Cats use their whiskers to detect nearby objects and judge narrow spaces.</string>
+    <string name="frase_gato_2">Cat tongues have tiny structures that help remove loose fur while grooming.</string>
+    <string name="frase_gato_3">Cats see better than humans in low-light environments.</string>
+    <string name="frase_gato_4">Scratching surfaces helps cats remove old layers from their claws.</string>
+    <string name="frase_gato_5">Adult cats usually have 30 teeth.</string>
+
+    <string name="frase_cachorro_1">Dogs do not see only in black and white: they can distinguish shades of blue and yellow.</string>
+    <string name="frase_cachorro_2">Dogs have sweat glands in their paw pads.</string>
+    <string name="frase_cachorro_3">Panting helps dogs release heat and regulate their body temperature.</string>
+    <string name="frase_cachorro_4">Dogs can hear higher-pitched sounds than humans.</string>
+    <string name="frase_cachorro_5">Puppies have 28 baby teeth, while adult dogs usually have 42 teeth.</string>
+
+    <string name="frase_ave_1">Bird bones are hollow and lightweight to help with flight.</string>
+    <string name="frase_ave_2">Hummingbirds are the only birds that can fly backwards.</string>
+    <string name="frase_ave_3">Birds have no teeth and use their gizzards to grind food.</string>
+    <string name="frase_ave_4">Owls can rotate their heads up to 270 degrees.</string>
+    <string name="frase_ave_5">Pigeons have a natural internal compass based on the magnetic field for navigation.</string>
+</resources>

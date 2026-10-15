@@ -4,15 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.activity.enableEdgeToEdge
 import androidx.core.view.WindowInsetsCompat
 import com.example.gatocachorro.databinding.ActivityMainBinding
+import com.example.gatocachorro.ui.MainViewModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mp: MyPreferences
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
@@ -27,41 +31,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnFpage.setOnClickListener(this)
 
-        mp = MyPreferences(applicationContext)
-
-        if (mp.getString("name").isNotBlank()) {
+        if (viewModel.existeNomeSalvo()) {
             abrirTelaFrases()
-            return
         }
-
     }
 
     override fun onClick(v: View?) {
-        if(v?.id == R.id.btn_fpage){
-            val nome = binding.mainInputFpage.text.toString().trim()
+        if (v?.id != R.id.btn_fpage) return
 
-            if (nome.isBlank()) {
-                Toast.makeText(
-                    this,
-                    R.string.toast_nome_vazio,
-                    Toast.LENGTH_SHORT
-                ).show()
-                return
-            }
-
-            else if (nome.length < 3){
-                Toast.makeText(
-                    this,
-                    R.string.toast_nome_pequeno,
-                    Toast.LENGTH_SHORT
-                ).show()
-                return
-            }
-
-            mp.setString("name", nome)
-
+        val erro = viewModel.validarESalvarNome(binding.mainInputFpage.text.toString())
+        if (erro != null) {
+            Toast.makeText(this, erro, Toast.LENGTH_SHORT).show()
+        } else {
             abrirTelaFrases()
-
         }
     }
 
