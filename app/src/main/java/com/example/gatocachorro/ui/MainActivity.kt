@@ -1,4 +1,4 @@
-package com.example.gatocachorro
+package com.example.gatocachorro.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.gatocachorro.R
 import com.example.gatocachorro.databinding.ActivityMainBinding
-import com.example.gatocachorro.ui.MainViewModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -31,19 +31,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnFpage.setOnClickListener(this)
 
-        if (viewModel.existeNomeSalvo()) {
-            abrirTelaFrases()
+        observarEstado()
+    }
+
+    private fun observarEstado() {
+        viewModel.erro.observe(this) { resId ->
+            if (resId != null) {
+                Toast.makeText(this, resId, Toast.LENGTH_SHORT).show()
+                viewModel.erroExibido()
+            }
+        }
+        viewModel.abrirTelaFrases.observe(this) { abrir ->
+            if (abrir) abrirTelaFrases()
         }
     }
 
     override fun onClick(v: View?) {
-        if (v?.id != R.id.btn_fpage) return
-
-        val erro = viewModel.validarESalvarNome(binding.mainInputFpage.text.toString())
-        if (erro != null) {
-            Toast.makeText(this, erro, Toast.LENGTH_SHORT).show()
-        } else {
-            abrirTelaFrases()
+        if (v?.id == R.id.btn_fpage) {
+            viewModel.salvarNome(binding.mainInputFpage.text.toString())
         }
     }
 

@@ -1,8 +1,9 @@
-package com.example.gatocachorro
+package com.example.gatocachorro.data
 
 import android.content.Context
 import android.content.SharedPreferences
 
+/** Fonte de dados local: so sabe ler e gravar textos no SharedPreferences. */
 class MyPreferences(context: Context) {
 
     private val sp: SharedPreferences =

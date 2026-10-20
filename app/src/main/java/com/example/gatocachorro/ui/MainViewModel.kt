@@ -2,25 +2,43 @@ package com.example.gatocachorro.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.example.gatocachorro.MyPreferences
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.gatocachorro.R
+import com.example.gatocachorro.data.UsuarioRepository
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val preferences = MyPreferences(application)
+    private val usuarioRepository = UsuarioRepository(application)
 
-    fun existeNomeSalvo(): Boolean = preferences.getString("name").isNotBlank()
+    /** Recurso da mensagem de erro a exibir; null quando nao ha erro pendente. */
+    private val _erro = MutableLiveData<Int?>()
+    val erro: LiveData<Int?> = _erro
 
-    /** Retorna o recurso da mensagem de erro, ou null se o nome foi salvo. */
-    fun validarESalvarNome(texto: String): Int? {
+    /** Fica true quando a tela de frases deve ser aberta. */
+    private val _abrirTelaFrases = MutableLiveData(false)
+    val abrirTelaFrases: LiveData<Boolean> = _abrirTelaFrases
+
+    init {
+        if (usuarioRepository.getNome().isNotBlank()) {
+            _abrirTelaFrases.value = true
+        }
+    }
+
+    fun salvarNome(texto: String) {
         val nome = texto.trim()
-        return when {
-            nome.isBlank() -> R.string.toast_nome_vazio
-            nome.length < 3 -> R.string.toast_nome_pequeno
+        when {
+            nome.isBlank() -> _erro.value = R.string.toast_nome_vazio
+            nome.length < 3 -> _erro.value = R.string.toast_nome_pequeno
             else -> {
-                preferences.setString("name", nome)
-                null
+                usuarioRepository.salvarNome(nome)
+                _abrirTelaFrases.value = true
             }
         }
+    }
+
+    /** Chamado pela UI depois de mostrar o erro, para ele nao reaparecer ao girar a tela. */
+    fun erroExibido() {
+        _erro.value = null
     }
 }

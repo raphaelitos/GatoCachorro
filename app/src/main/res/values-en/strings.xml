@@ -4,13 +4,10 @@
     <string name="text_title_fpage">Cat, Dog and Bird Facts</string>
     <string name="hint_inp_name">Enter your name</string>
     <string name="text_btn_fpage">SAVE</string>
-    <string name="title_activity_main2">MainActivity2</string>
-    <string name="toast_btn_fpage">Opening...</string>
     <string name="txt_saudacao_app_page">Hello,</string>
     <string name="txt_nome_user_app_page">Your name</string>
     <string name="txt_curiosidade">Your fact appears here :)</string>
     <string name="txt_btn_calc_app_page">GENERATE ANOTHER FACT</string>
-    <string name="toast_btn_app_page">Generating a new fact...</string>
     <string name="txt_btn_voltar">Back</string>
     <string name="toast_nome_vazio">Enter your name to continue.</string>
     <string name="toast_nome_pequeno">Your name must have at least 3 characters!</string>
