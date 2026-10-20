@@ -14,6 +14,8 @@
 
     <string name="sem_frases_disponiveis">Sem frases disponíveis</string>
     <string name="frase_excluida">Frase excluída com sucesso!</string>
+    <string name="carregando_frase">Buscando curiosidade...</string>
+    <string name="erro_api_frase_local">Não foi possível acessar a API. Exibindo uma curiosidade salva no app.</string>
     <string name="animal_gato">Gato</string>
     <string name="animal_cachorro">Cachorro</string>
     <string name="animal_ave">Ave</string>

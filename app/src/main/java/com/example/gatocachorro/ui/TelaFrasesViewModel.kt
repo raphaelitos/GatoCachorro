@@ -12,6 +12,7 @@ import com.example.gatocachorro.model.Animal
 class TelaFrasesViewModel(application: Application) : AndroidViewModel(application) {
 
     private val usuarioRepository = UsuarioRepository(application)
+    private val frasesRepository = FrasesRepository(application)
 
     private val _nome = MutableLiveData<String>()
     val nome: LiveData<String> = _nome
@@ -19,12 +20,16 @@ class TelaFrasesViewModel(application: Application) : AndroidViewModel(applicati
     private val _animal = MutableLiveData<Animal>()
     val animal: LiveData<Animal> = _animal
 
-    private val _fraseResId = MutableLiveData<Int>()
-    val fraseResId: LiveData<Int> = _fraseResId
+    /** Texto exibido na area da curiosidade (frase, "carregando..." ou "sem frases"). */
+    private val _frase = MutableLiveData<String>()
+    val frase: LiveData<String> = _frase
 
     /** Recurso da mensagem a exibir; null quando nao ha mensagem pendente. */
     private val _mensagem = MutableLiveData<Int?>()
     val mensagem: LiveData<Int?> = _mensagem
+
+    /** Frase realmente carregada; null enquanto carrega ou quando nao ha frase para excluir. */
+    private var fraseAtual: String? = null
 
     init {
         _nome.value = usuarioRepository.getNome()
@@ -39,16 +44,26 @@ class TelaFrasesViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     fun sortearNovaFrase() {
-        _fraseResId.value = FrasesRepository.sortear(animalAtual())
+        val animal = animalAtual()
+        fraseAtual = null
+        _frase.value = texto(R.string.carregando_frase)
+
+        frasesRepository.buscarFrase(animal) { frase, apiFalhou ->
+            // Se o usuario trocou de animal antes da resposta chegar, ela ja nao serve.
+            if (animal != animalAtual()) return@buscarFrase
+
+            fraseAtual = frase
+            _frase.value = frase ?: texto(R.string.sem_frases_disponiveis)
+            if (apiFalhou) _mensagem.value = R.string.erro_api_frase_local
+        }
     }
 
     fun excluirFraseAtual() {
-        val atual = _fraseResId.value ?: return
+        val atual = fraseAtual ?: return
 
-        if (FrasesRepository.excluir(animalAtual(), atual)) {
-            _mensagem.value = R.string.frase_excluida
-            sortearNovaFrase()
-        }
+        frasesRepository.excluir(atual)
+        _mensagem.value = R.string.frase_excluida
+        sortearNovaFrase()
     }
 
     /** Chamado pela UI depois de mostrar a mensagem, para ela nao reaparecer ao girar a tela. */
@@ -61,4 +76,6 @@ class TelaFrasesViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     private fun animalAtual(): Animal = _animal.value ?: Animal.PADRAO
+
+    private fun texto(resId: Int): String = getApplication<Application>().getString(resId)
 }

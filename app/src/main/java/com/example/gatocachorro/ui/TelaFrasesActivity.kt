@@ -48,8 +48,8 @@ class TelaFrasesActivity : AppCompatActivity(), View.OnClickListener, View.OnLon
         viewModel.animal.observe(this) { animal ->
             mudarCor(animal)
         }
-        viewModel.fraseResId.observe(this) { resId ->
-            binding.txtCuriosity.setText(resId)
+        viewModel.frase.observe(this) { frase ->
+            binding.txtCuriosity.text = frase
         }
         viewModel.mensagem.observe(this) { resId ->
             if (resId != null) {

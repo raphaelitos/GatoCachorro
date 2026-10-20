@@ -14,6 +14,8 @@
 
     <string name="sem_frases_disponiveis">No facts available</string>
     <string name="frase_excluida">Fact deleted successfully!</string>
+    <string name="carregando_frase">Fetching a fact...</string>
+    <string name="erro_api_frase_local">Could not reach the API. Showing a fact stored in the app.</string>
     <string name="animal_gato">Cat</string>
     <string name="animal_cachorro">Dog</string>
     <string name="animal_ave">Bird</string>
